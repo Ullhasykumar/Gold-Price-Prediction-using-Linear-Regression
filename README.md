@@ -77,13 +77,12 @@ python gold_price_prediction.py
 
 ---
 
-## 📦 Dependencies
+## Dependencies
 
 | Library | Purpose |
 |---------|---------|
 | `numpy` | Matrix operations & Normal Equation |
 | `pandas` | DataFrame manipulation |
-| `matplotlib` | (Available for future plotting) |
 | `yfinance` | Fetching live GLD ETF data from Yahoo Finance |
 | `scikit-learn` | `train_test_split`, `r2_score`, `mean_squared_error` |
 
