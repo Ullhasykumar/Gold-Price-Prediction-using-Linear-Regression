@@ -1,10 +1,10 @@
-# 📈 Gold Price Prediction using Linear Regression (From Scratch)
+# Gold Price Prediction using Linear Regression (From Scratch)
 
-A machine learning project that predicts the **closing price of Gold (GLD ETF)** using a custom Linear Regression model built entirely from scratch with NumPy — no `sklearn.LinearRegression` used.
+A machine learning project that predicts the **closing price of Gold (GLD ETF)** using a custom Linear Regression model built entirely from scratch with NumPy — no sklearn.LinearRegression used.
 
 ---
 
-## 🚀 Demo / Output
+## Demo / Output
 
 | Metric | Value |
 |--------|-------|
@@ -15,18 +15,18 @@ A machine learning project that predicts the **closing price of Gold (GLD ETF)**
 
 ---
 
-## 📌 Features
+##  Features
 
-- ✅ **Custom Linear Regression** — implemented using the **Normal Equation** (closed-form solution), not gradient descent
-- ✅ **Real-time financial data** — fetched directly via `yfinance` (no manual CSV needed)
-- ✅ **Multi-feature regression** — uses `High`, `Low`, and `Open` as input features
-- ✅ **Model evaluation** — uses R² Score and Mean Squared Error
-- ✅ **Comparison table** — side-by-side view of actual vs. predicted closing prices
-- ✅ **No ML black box** — every step of the math is transparent and readable
+- **Custom Linear Regression** — implemented using the **Normal Equation** (closed-form solution), not gradient descent
+-  **Real-time financial data** — fetched directly via `yfinance` (no manual CSV needed)
+-  **Multi-feature regression** — uses `High`, `Low`, and `Open` as input features
+-  **Model evaluation** — uses R² Score and Mean Squared Error
+-  **Comparison table** — side-by-side view of actual vs. predicted closing prices
+-  **No ML black box** — every step of the math is transparent and readable
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 ### The Math Behind It
 
@@ -52,21 +52,7 @@ Once `β` is learned:
 
 ---
 
-## 🗂️ Project Structure
-
-```
-gold-price-prediction/
-│
-├── gold_price_prediction.py     # Main script
-├── requirements.txt             # Python dependencies
-├── .gitignore                   # Git ignore rules
-├── README.md                    # This file
-└── LICENSE                      # MIT License
-```
-
----
-
-## ⚙️ Installation & Usage
+##  Installation & Usage
 
 ### 1. Clone the repository
 
@@ -103,7 +89,7 @@ python gold_price_prediction.py
 
 ---
 
-## 🔬 Code Walkthrough
+## Code Walkthrough
 
 ### Step 1 — Data Collection
 ```python
@@ -142,59 +128,24 @@ print(mean_squared_error(y_test, y_pred))
 
 ---
 
-## 📊 Scope of Improvements
+## Scope of Improvements
 
 This project is a clean baseline. Here are meaningful ways to extend it:
 
-### 🔧 Model Improvements
+###  Model Improvements
 - [ ] **Add more features** — Volume, Moving Averages (MA5, MA20), RSI, MACD, Bollinger Bands
 - [ ] **Try other models** — Random Forest, XGBoost, SVR, LSTM (for time-series awareness)
 - [ ] **Gradient Descent implementation** — Rewrite `fit()` using iterative optimization instead of the Normal Equation to handle larger datasets more efficiently
 - [ ] **Regularization** — Add L1 (Lasso) or L2 (Ridge) penalty to avoid overfitting on noisy financial data
 
-### 📅 Data / Time-Series Improvements
+###  Data / Time-Series Improvements
 - [ ] **Avoid data leakage** — The current train/test split is random, which is problematic for time-series. Use **chronological split** (e.g., train on 2020–2024, test on 2025–2026)
 - [ ] **Lag features** — Add previous day's Close, High, Low as features to capture temporal patterns
 - [ ] **External signals** — Incorporate USD Index (DXY), S&P 500, inflation data, or interest rates
 
-### 📈 Visualization
-- [ ] **Plot actual vs. predicted** — Use `matplotlib` to visualize predictions over time
-- [ ] **Residual plot** — Check for patterns in errors
-- [ ] **Feature importance** — Bar chart of learned coefficients
-
-### 🧪 Code Quality
-- [ ] **Convert to Jupyter Notebook** — With markdown cells explaining each step
-- [ ] **Add cross-validation** — `KFold` or `TimeSeriesSplit` for more robust evaluation
-- [ ] **Save/load model** — Persist `coef_` and `intercept_` using `joblib` or `pickle`
-- [ ] **CLI arguments** — Accept ticker symbol, date range as command-line arguments
-- [ ] **Unit tests** — Test `myLR` against `sklearn.LinearRegression` to verify correctness
-
 ---
 
-## 📐 Why Does R² ≈ 0.99?
+## Why Does R² ≈ 0.99?
 
 The very high R² is expected — not a bug. Within a single trading day, a stock/ETF's `High`, `Low`, and `Open` prices are **extremely strongly correlated** with its `Close` price. This is a valid regression task, but the features are intra-day (not predictive of future days). For **true forecasting**, you'd need features from *previous* days to predict *today's* close.
 
----
-
-## 🙋 Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
-
-1. Fork the repo
-2. Create your feature branch: `git checkout -b feature/add-lstm`
-3. Commit your changes: `git commit -m 'Add LSTM model'`
-4. Push to the branch: `git push origin feature/add-lstm`
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 👤 Author
-
-Made with ❤️ — feel free to connect or star ⭐ the repo if you found it useful!
